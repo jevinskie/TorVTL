@@ -1,0 +1,86 @@
+TorVTL: A Tor Virtual Transport Layer
+=====================================
+
+Copyright (c) 2006 by John R. Lange
+
+This is a Virtual Transport Layer that interfaces into the Tor anonymizing
+network. It captures all TCP traffic on a network interface and transforms 
+it into Tor traffic, that is sent through a Tor proxy server. Currently 
+TorVTL handles TCP, ARP, and DNS packets. UDP support will be added when 
+Tor supports UDP traffic.
+
+TorVTL assumes that the interface it is connected is a 'host-only' 
+interface. 'host-only' means that none of the packets routed to that 
+interface are ever transmitted to a physical or real network. Usual 
+instances of these interfaces are tap devices from the tun/tap family, as 
+well as host-only interfaces created by many virtual machine monitors. 
+TorVTL is intended for use with Virtual Machines however, in theory it can 
+work with any traffic that is routed to a virtual interface.
+
+TorVTL requires that you have the PCAP and LIBNET libraries installed.
+
+Libnet can be downloaded from: http://libnet.sourceforge.net/
+PCAP can be downloaed from: http://www.tcpdump.org/
+
+Specific configurations:
+
+VMWARE GSX/VMWARE VIRTUAL-SERVER/VMWARE PLAYER(?)
+
+These VMWare products create specific virtual interfaces on the system, 
+typically named vmnetX, where X is a number. There are three types of 
+these interfaces available: host-only, bridged, and nat. As stated above 
+TorVTL only operates on host-only interfaces. In order to use a virtual 
+machine with TorVTL simply configure it to use host-only networking. Then 
+bring up the interface inside the VM (the ip-address doesn't matter). Next 
+run the torclient program, setting the '-d' flag to the host-only vmware 
+interface. 
+
+For example: 
+If vmnet1 is configured as the host-only interface then run:
+torclient -d vmnet1 -a <address-to-tor-proxy> -p <port-tor-is-running-on>
+
+
+XEN
+
+Xen Virtual machines have a more convoluted networking system in place. 
+Normally Xen VMs are configured to connect to a specific bridge that is in 
+turn connected to a physical interface. In order to create a host-only 
+interface with Xen you need to instantiate a tap interface. 
+
+TorVTL includes a simple program to do this (as root user): 
+tap_create <tap-device>
+or if you simply want to use tap1 (as root user):
+make tap1
+
+Next you need to configure Xen to use the tap interface, to do this either 
+modify the current xen bridge or create a new bridge with 'brctl'. Then 
+add the tap device to the bridge you created. If you modified the existing 
+bridge used by Xen then you're done. However if you created a new bridge 
+you need to change the xen configuration files to point to the new bridge. 
+This can be done by altering the vif line to:
+
+vif = [ 'bridge=name-of-bridge' ]
+
+where name-of-bridge is the name of the new bridge you created.
+
+Once that is done TorVTL can be started by running:
+torclient -r <tap-device> -t <bridge-name> -a <proxy-address> -p <proxy-port>
+
+It is important that you get the '-r' and '-t' flags correct.
+
+
+GENERIC APPLICATIONS
+
+We have not tested it, but you should be able to use TorVTL with general 
+applications by using the same technique as used with XEN. However you 
+would need to configure the routing tables to use the bridge device for 
+any connections you would like to tunnel through TOR.
+
+TorVTL was developed as part of the Virtuoso/VNET-VTP project at 
+Northwestern University.
+
+More details on Virtuoso can be found at:
+http://virtuoso.cs.northwestern.edu/
+
+Details on VNET-VTP will be forthcoming in publications that will be made 
+available from virtuoso webpage.

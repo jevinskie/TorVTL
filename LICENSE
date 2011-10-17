@@ -1,0 +1,66 @@
+WARNINGS
+--------
+
+THIS SOURCE CODE IS NOT PUBLIC DOMAIN, FREEWARE, SHAREWARE, or "COPY-LEFTED."
+
+THIS SOURCE CODE MAY BE FREELY DISTRIBUTED UNDER THE LIMITS SPECIFIED BELOW.
+
+THIS SOURCE CODE HAS NO ACTUAL OR IMPLIED WARRANTY OR GUARANTEE OF ANY
+KIND FROM JOHN R. LANGE, NORTHWESTERN UNIVERSITY, OR ANY OTHER PARTY.
+
+THIS SOURCE CODE IS NOT SUPPORTED BY JOHN R. LANGE, NORTHWESTERN
+UNIVERSITY, OR ANY OTHER PARTY.
+
+To the best of my knowledge, this source code, "TorVTL", is correct and
+suitable.  However, no warranty or guarantee of any kind, either
+actual or implied, is provided for this software.  Additionally, no
+support is provided for this software.  It is used at your own risk.
+
+==============================================================================
+
+LICENSE
+-------
+
+This source code, "TorVTL", is 
+                
+  Copyright (c) 2006 by John R. Lange
+                                         
+
+Current version is available via:
+    http://www.cs.northwestern.edu/~jrl829/torvtl
+    http://www.artifex.org/~jarusl/torvtl
+
+Permission is granted to distribute and freely use and extend "TorVTL", or
+to incorporate the "TorVTL" source code into other software within these
+limits:
+
+   0) "TorVTL" and any derivatives of "TorVTL" must retain this license,
+display the above copyright notice when run, and include this file.
+
+   1) "TorVTL" and any derivatives of "TorVTL" may only be freely used for
+non-commercial purposes.  If you are interested in commercial use of
+"TorVTL", contact John R. Lange (jarusl@cs.northwestern.edu).  
+
+   2) John R. Lange (jarusl@cs.northwestern.edu) must be notified of any
+derivatives of "TorVTL"
+
+
+In simple terms, "TorVTL" may be freely used for any non-commercial,
+non-military purposes.  Derivatives of "TorVTL" must be similarly free
+and John R. Lange (jarusl@cs.northwestern.edu) must be notified of
+their existence.  Commercial use of "TorVTL" and commercial derivatives
+of "TorVTL" are NOT ALLOWED under this license.  To use "TorVTL"
+commercially, contact John R. Lange (jarusl@cs.northwestern.edu) for
+more information.
+
+
+John R. Lange
+Department of Electrical Engineering and Computer Science
+Northwestern University
+2145 Sheridan Rd
+Evanston, IL 60208
+
+jarusl@cs.northwestern.edu
+http://www.cs.northwestern.edu/~jrl829
+http://www.artifex.org/~jarusl
+
